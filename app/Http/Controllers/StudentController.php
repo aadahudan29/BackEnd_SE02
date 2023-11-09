@@ -7,9 +7,9 @@ use App\Models\Student;
 
 class StudentController extends Controller
 {
-    public function index()
+	public function index()
 	{
-        # menggunakan model Student untuk select data
+		# menggunakan model Student untuk select data
 		$students = Student::all();
 
 		if (!empty($students)) {
@@ -26,7 +26,7 @@ class StudentController extends Controller
 		}
 	}
 
-	public function store(Request $request) 
+	public function store(Request $request)
 	{
 
 		// $input = [
@@ -55,13 +55,13 @@ class StudentController extends Controller
 				'message' => 'Get detail student',
 				'data' => $student
 			];
-	
+
 			return response()->json($response, 200);
 		} else {
 			$response = [
 				'message' => 'Data not found'
 			];
-			
+
 			return response()->json($response, 404);
 		}
 	}
@@ -75,7 +75,7 @@ class StudentController extends Controller
 				'message' => 'Student is updated',
 				'data' => $student->update($request->all())
 			];
-	
+
 			return response()->json($response, 200);
 		} else {
 			$response = [
@@ -96,7 +96,7 @@ class StudentController extends Controller
 				'data' => $student->delete()
 			];
 
-			return response()->json($response, 200); 
+			return response()->json($response, 200);
 		} else {
 			$response = [
 				'message' => 'Data not found'
